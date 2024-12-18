@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- تعريف ترميز النص ليكون مناسبًا للغة العربية -->
+    <meta charset="UTF-8">
+    <!-- إعداد الصفحة لتكون متوافقة مع جميع الأجهزة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض صورتين متجاورتين</title>
+
+    <!-- أكواد CSS داخل وسم <style> للتحكم في تنسيق الصفحة -->
+    <style>
+        /* تنسيق الصفحة بالكامل: إزالة الهوامش والمساحات الافتراضية */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* يضمن عدم تأثير الحواف على الحجم */
+        }
+
+        /* حاوية عامة تحتوي على الصور */
+        .image-container {
+            width: 100%; /* الحاوية تأخذ عرض الشاشة بالكامل */
+            display: flex; /* استخدام flex لوضع العناصر بشكل أفقي أو عمودي */
+            flex-direction: column; /* ترتيب الصور بشكل عمودي */
+
+        }
+
+        /* تنسيق الصور داخل الحاوية */
+        .image-container img {
+            width: 100%; /* جعل الصورة تمتد على عرض الشاشة بالكامل */
+            height: auto; /* الحفاظ على تناسب الأبعاد */
+            display: block; /* إزالة المسافات البيضاء حول الصور */
+        }
+               /* تصميم الفيديو ليبدو صغيرًا */
+               .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        video {
+            width: 200px; /* عرض الفيديو */
+            height: auto; /* ضبط الطول تلقائيًا */
+            border-radius: 8px; /* زوايا دائرية للفيديو */
+            object-fit: cover; /* اقتصاص الفيديو */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        /* إخفاء جميع الصور افتراضيًا */
+        .responsive-image { display: none;
+            width: 100%;
+            height: auto;
+        }
+
+
+        .computer img, .mobile img {
+            width: 100%;
+            height: auto;
+            border-radius: 0px;
+        }
+        /* الصور الخاصة بالحاسوب */
+        .row.computer .image-container {
+            flex: 0 0 20%;
+        }
+        /* الصور الخاصة بالهاتف */
+        .row.mobile .image-container {
+            flex: 0 0 50%;
+        }
+        /* استخدام media query لتحديد عرض الصور حسب حجم الشاشة */
+        @media (max-width: 767px) {
+            .row.computer {
+                display: none;
+            }
+        }
+        @media (min-width: 768px) {
+            .row.mobile {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        // منع الضغط بزر الفأرة الأيمن
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    
+        // منع السحب أو الضغط المطول على الصور
+        document.addEventListener('mousedown', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    
+        // تعطيل خاصية السحب للصور
+        document.ondragstart = function (e) {
+            if (e.target.tagName === 'IMG') {
+                return false;
+            }
+        };
+    </script>
+
+       
+</head>
+<body>
+
+    <div class="row computer">
+        <div class="image-container">
+            <img src="mawki3.png"   alt="صورة حاسوب 1">
+           
+            <!-- رابط واتساب فوق الصورة الأولى -->
+  
+<!-- رابط واتساب فوق الصورة الأولى -->
+
+
+<!--a href="https://wa.me/+212697559439" target="_blank" style="position: absolute; top: 90%; left: 60%; width: 100px; height: 50px; background-color: rgba(237, 243, 237, 0.817); text-decoration: none;"></a-->
+   <a href="Services.html" target="_blank" style="position: absolute; top: 24%; left: 47.3%; width: 610px; height: 89px; background-color: rgba(0, 0, 0, 0); text-decoration: none;"></a>
+   <a href="matjar.html" target="_blank" style="position: absolute;z-index: 10; top: 8%; left: 47.3%; width: 610px; height: 83px; background-color: rgba(1, 2, 4, 0); text-decoration: none;"></a>
+
+        </div>
+        <div class="image-container">
+            <img src="mawki3 2.png" alt="صورة حاسوب 2">
+
+        </div>
+        <div class="image-container">
+            <img src="mawki3 3.png" alt="صورة حاسوب 3">
+        </div>
+        <div class="image-container">
+            <img src="mawki3 4.png" alt="صورة حاسوب 4">
+        </div>
+  </div>  
+    </div>
+    <div class="row mobile">
+        <div class="image-container">
+            <img src="mawki3 1 telephone.png" alt="صورة هاتف 1">
+        </div>
+        <div class="image-container">
+            <img src="image6.jpg" alt="صورة هاتف 2">
+        </div>
+        <div class="image-container">
+            <img src="image7.jpg" alt="صورة هاتف 3">
+        </div>
+        <div class="image-container">
+            <img src="mawki3 4 telephone.png" alt="صورة هاتف 4">
+        </div>
+    </div>
+</body>
+</html>
+        
+ 
+         
+        
